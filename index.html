@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Tarô — Arcanos Maiores</title>
+     <link rel="stylesheet" href="css/styles.css">
+     <link rel="stylesheet" href="css/queries.css">
+</head>
+
+<body>
+     <div class="app">
+          <header>
+               <div class="header-symbol">✦ ✦ ✦</div>
+               <h1>Tarô</h1>
+               <p>Arcanos Maiores · Consulte os símbolos do destino</p>
+          </header>
+
+          <nav class="spread-selector">
+               <button class="spread-btn" data-spread="daily">
+                    Carta do Dia
+                    <span class="btn-sub">Uma carta · mensagem diária</span>
+               </button>
+               <button class="spread-btn" data-spread="three">
+                    Três Cartas
+                    <span class="btn-sub">Passado · presente · futuro</span>
+               </button>
+               <button class="spread-btn" data-spread="celtic">
+                    Cruz Celta
+                    <span class="btn-sub">Dez cartas · leitura completa</span>
+               </button>
+          </nav>
+
+          <div id="loading">Consultando os arcanos</div>
+
+          <div id="reading-area"></div>
+     </div>
+
+     <footer style="text-align: center;">&copy; kreatorstack.github.io/lab</footer>
+
+     <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
