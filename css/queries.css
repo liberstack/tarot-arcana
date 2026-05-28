@@ -1,132 +1,280 @@
-@media (max-width: 768px) {
+/* ══════════════════════════════════════════
+   MOBILE  ≤ 480px
+   ══════════════════════════════════════════ */
+@media (max-width: 480px) {
      :root {
-          --card-w: 150px;
-          --card-h: 260px;
+          --card-w: 158px;
+          --card-h: 268px;
+     }
+
+     .app {
+          padding: 0 16px 72px;
      }
 
      header {
-          padding: 40px 0 32px;
+          padding: 44px 0 36px;
+          margin-bottom: 40px;
+     }
+
+     header h1 {
+          font-size: 28px;
+          letter-spacing: 0.14em;
+     }
+
+     header p {
+          font-size: 15px;
+     }
+
+     .header-symbol {
+          font-size: 22px;
      }
 
      .spread-selector {
-          gap: 8px;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 44px;
      }
 
      .spread-btn {
-          padding: 12px 18px;
+          width: 100%;
+          max-width: 300px;
+          font-size: 12px;
+          padding: 16px 24px;
+     }
+
+     .spread-btn .btn-sub {
+          font-size: 13px;
      }
 
      .cards-grid {
           gap: 14px;
      }
 
-     .modal-box {
-          flex-direction: column;
-          max-width: 380px;
-     }
-
-     .modal-img-wrap {
-          width: 100%;
-          height: 220px;
-          min-height: unset;
-          border-radius: 16px 16px 0 0;
-     }
-
-     .modal-content {
-          padding: 24px 24px 28px;
-     }
-
-     .modal-name {
-          font-size: 18px;
-     }
-}
-
-@media (max-width: 480px) {
-     :root {
-          --card-w: 130px;
-          --card-h: 230px;
-     }
-
-     .app {
-          padding: 0 14px 60px;
-     }
-
-     header h1 {
-          font-size: 22px;
-          letter-spacing: 0.12em;
-     }
-
-     .spread-selector {
-          flex-direction: column;
-          align-items: center;
-     }
-
-     .spread-btn {
-          width: 100%;
-          max-width: 280px;
-     }
-
-     .cards-grid {
-          gap: 10px;
-     }
-
      .cards-grid.layout-celtic {
           grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
      }
 
+     .card-position {
+          font-size: 10px;
+     }
+
+     .card-name {
+          font-size: 13px;
+     }
+
+     /* Modal: folha de baixo em mobile */
      .modal-overlay {
-          padding: 12px;
+          padding: 0;
           align-items: flex-end;
      }
 
      .modal-box {
+          flex-direction: column;
           max-width: 100%;
-          max-height: 80vh;
-          border-radius: 16px 16px 0 0;
+          max-height: 88vh;
+          border-radius: 20px 20px 0 0;
+          border-bottom: none;
      }
 
      .modal-img-wrap {
-          height: 180px;
-          border-radius: 16px 16px 0 0;
+          width: 100%;
+          min-height: 240px;
+          border-radius: 20px 20px 0 0;
      }
 
      .modal-content {
-          padding: 20px 20px 24px;
+          padding: 24px 24px 32px;
+          gap: 14px;
      }
 
      .modal-name {
+          font-size: 24px;
+     }
+
+     .modal-keywords {
           font-size: 16px;
      }
 
      .modal-meaning {
-          font-size: 14px;
+          font-size: 17px;
+     }
+
+     .modal-reversed {
+          font-size: 15px;
      }
 }
 
-@media (min-width: 1200px) {
+/* ══════════════════════════════════════════
+   TABLET  481px – 768px
+   ══════════════════════════════════════════ */
+@media (min-width: 481px) and (max-width: 768px) {
      :root {
-          --card-w: 210px;
-          --card-h: 340px;
+          --card-w: 178px;
+          --card-h: 300px;
+     }
+
+     header {
+          padding: 52px 0 44px;
+          margin-bottom: 48px;
+     }
+
+     .spread-selector {
+          gap: 10px;
+          margin-bottom: 52px;
+     }
+
+     .spread-btn {
+          padding: 16px 28px;
+          font-size: 13px;
+     }
+
+     .spread-btn .btn-sub {
+          font-size: 13px;
      }
 
      .cards-grid {
-          gap: 28px;
+          gap: 18px;
      }
 
      .modal-box {
-          max-width: 640px;
+          flex-direction: column;
+          max-width: 460px;
      }
 
      .modal-img-wrap {
-          width: 200px;
-          min-height: 360px;
+          width: 100%;
+          min-height: 280px;
+          border-radius: 20px 20px 0 0;
+     }
+
+     .modal-content {
+          padding: 28px 28px 36px;
+          gap: 14px;
      }
 
      .modal-name {
-          font-size: 26px;
+          font-size: 28px;
      }
 
      .modal-meaning {
+          font-size: 18px;
+     }
+
+     .modal-reversed {
           font-size: 16px;
+     }
+}
+
+/* ══════════════════════════════════════════
+   DESKTOP LARGO  ≥ 1200px
+   ══════════════════════════════════════════ */
+@media (min-width: 1200px) {
+     :root {
+          --card-w: 250px;
+          --card-h: 420px;
+     }
+
+     body {
+          font-size: 21px;
+     }
+
+     .header-symbol {
+          font-size: 36px;
+     }
+
+     header {
+          padding: 88px 0 72px;
+          margin-bottom: 72px;
+     }
+
+     .spread-btn {
+          font-size: 14px;
+          padding: 22px 48px;
+     }
+
+     .spread-btn .btn-sub {
+          font-size: 15px;
+     }
+
+     .reading-title {
+          font-size: 20px;
+     }
+
+     .cards-grid {
+          gap: 36px;
+     }
+
+     .cards-grid.layout-celtic {
+          grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+          gap: 32px;
+     }
+
+     .card-position {
+          font-size: 12px;
+     }
+
+     .card-name {
+          font-size: 18px;
+          padding-top: 2px;
+     }
+
+     /* Modal largo */
+     .modal-box {
+          max-width: 920px;
+     }
+
+     .modal-img-wrap {
+          width: 300px;
+          min-height: 560px;
+     }
+
+     .modal-content {
+          padding: 52px 52px 52px 44px;
+          gap: 22px;
+     }
+
+     .modal-name {
+          font-size: 40px;
+     }
+
+     .modal-keywords {
+          font-size: 20px;
+     }
+
+     .modal-meaning {
+          font-size: 22px;
+     }
+
+     .modal-reversed {
+          font-size: 19px;
+     }
+}
+
+/* ══════════════════════════════════════════
+   TELA MUITO LARGA  ≥ 1600px
+   ══════════════════════════════════════════ */
+@media (min-width: 1600px) {
+     :root {
+          --card-w: 280px;
+          --card-h: 470px;
+     }
+
+     .modal-box {
+          max-width: 1020px;
+     }
+
+     .modal-img-wrap {
+          width: 340px;
+          min-height: 600px;
+     }
+
+     .modal-name {
+          font-size: 44px;
+     }
+
+     .modal-meaning {
+          font-size: 23px;
      }
 }
