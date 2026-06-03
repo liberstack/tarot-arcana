@@ -615,6 +615,72 @@ header p {
 
 
 
+/* ── "Todas as Cartas" button variant ── */
+
+.spread-btn--all {
+     border-color: rgba(123, 94, 167, 0.3);
+     color: var(--accent-light);
+}
+
+.spread-btn--all .btn-sub {
+     color: rgba(123, 94, 167, 0.5);
+}
+
+.spread-btn--all:hover {
+     border-color: var(--accent-light);
+     color: var(--accent-light);
+}
+
+.spread-btn--all.active {
+     border-color: var(--accent-light);
+     color: var(--accent-light);
+     background: rgba(123, 94, 167, 0.1);
+}
+
+.spread-btn--all.active .btn-sub {
+     color: rgba(160, 127, 212, 0.7);
+}
+
+/* ── All-cards grid ── */
+
+.all-cards-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+     gap: 24px;
+}
+
+.all-cards-grid .card-wrapper {
+     width: auto;
+}
+
+@media (max-width: 480px) {
+     .all-cards-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+     }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+     .all-cards-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+     }
+}
+
+@media (min-width: 1200px) {
+     .all-cards-grid {
+          grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+          gap: 28px;
+     }
+}
+
+@media (min-width: 1600px) {
+     .all-cards-grid {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 32px;
+     }
+}
+
 /* ══════════════════════════════════════════
    MOBILE  ≤ 480px
    ══════════════════════════════════════════ */

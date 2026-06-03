@@ -1,6 +1,6 @@
 import { dailyCard, threeCards, celticCross } from './spreads.js';
 import { saveDailyCard, loadDailyCard, saveReading } from './storage.js';
-import { renderReading, setLoading, setActiveButton, clearReading } from './ui.js';
+import { renderReading, renderAllCards, setLoading, setActiveButton, clearReading } from './ui.js';
 
 const spreads = {
   daily: dailyCard,
@@ -13,6 +13,13 @@ function doReading(type) {
   setActiveButton(type);
 
   setTimeout(() => {
+    if (type === 'all') {
+      setLoading(false);
+      clearReading();
+      renderAllCards();
+      return;
+    }
+
     let reading;
 
     if (type === 'daily') {

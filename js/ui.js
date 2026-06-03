@@ -119,3 +119,87 @@ export function clearReading() {
   const modal = document.getElementById('card-modal');
   if (modal) modal.remove();
 }
+
+export function renderAllCards() {
+  import('./deck.js').then(({ default: DECK }) => {
+    const container = document.getElementById('reading-area');
+    container.innerHTML = '';
+
+    const header = document.createElement('div');
+    header.className = 'reading-header';
+    header.innerHTML = `<h2 class="reading-title">Todos os Arcanos Maiores</h2>`;
+    container.appendChild(header);
+
+    const grid = document.createElement('div');
+    grid.className = 'cards-grid all-cards-grid';
+    container.appendChild(grid);
+
+    DECK.forEach((card, index) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'card-wrapper flipped';
+      wrapper.style.animationDelay = `${index * 0.05}s`;
+
+      wrapper.innerHTML = `
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-back-design"></div>
+          </div>
+          <div class="card-face">
+            <div class="card-img-wrap">
+              <img src="${card.img}" alt="${card.name}" loading="lazy" onerror="this.parentNode.classList.add('no-img')">
+              <div class="card-img-fallback">${card.id.toString().padStart(2,'0')}</div>
+            </div>
+            <div class="card-info">
+              <p class="card-position">Arcano ${card.id.toString().padStart(2,'0')}</p>
+              <h3 class="card-name">${card.name}</h3>
+            </div>
+          </div>
+        </div>
+      `;
+
+      wrapper.addEventListener('click', () => openAllCardsModal(card));
+      grid.appendChild(wrapper);
+    });
+
+    container.classList.add('visible');
+  });
+}
+
+function openAllCardsModal(card) {
+  const existing = document.getElementById('card-modal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'card-modal';
+  modal.className = 'modal-overlay';
+  modal.innerHTML = `
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Fechar">✕</button>
+      <div class="modal-img-wrap">
+        <img src="${card.img}" alt="${card.name}" onerror="this.parentNode.classList.add('no-img')">
+        <div class="card-img-fallback">${card.id.toString().padStart(2,'0')}</div>
+      </div>
+      <div class="modal-content">
+        <p class="modal-position">Arcano Maior · ${card.id.toString().padStart(2,'0')}</p>
+        <h2 class="modal-name">${card.name}</h2>
+        <p class="modal-keywords">${card.keywords}</p>
+        <div class="modal-divider"></div>
+        <p class="modal-meaning">${card.meaning}</p>
+        <p class="modal-reversed"><span class="reversed-label">Invertida</span> ${card.meaning_reversed}</p>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  requestAnimationFrame(() => modal.classList.add('visible'));
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal(modal);
+  });
+
+  modal.querySelector('.modal-close').addEventListener('click', () => closeModal(modal));
+
+  document.addEventListener('keydown', function onKey(e) {
+    if (e.key === 'Escape') { closeModal(modal); document.removeEventListener('keydown', onKey); }
+  });
+}
