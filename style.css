@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Pro:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 
 *,
 *::before,
@@ -41,8 +41,9 @@ body {
      background-color: var(--bg);
      color: var(--text);
      font-family: var(--font-body);
-     font-size: 20px;
-     line-height: 1.75;
+     font-size: 19px;
+     font-weight: 400;
+     line-height: 1.8;
      min-height: 100vh;
      overflow-x: hidden;
 }
@@ -94,10 +95,10 @@ header h1 {
 }
 
 header p {
-     font-size: 20px;
+     font-size: 18px;
      color: var(--text-muted);
      font-style: italic;
-     letter-spacing: 0.06em;
+     letter-spacing: 0.04em;
 }
 
 /* ── Spread buttons ── */
@@ -158,9 +159,9 @@ header p {
 .spread-btn .btn-sub {
      display: block;
      font-family: var(--font-body);
-     font-size: 14px;
-     letter-spacing: 0.04em;
-     color: var(--text-dim);
+     font-size: 13px;
+     letter-spacing: 0.03em;
+     color: var(--text-muted);
      margin-top: 6px;
      font-style: italic;
      text-transform: none;
@@ -395,10 +396,10 @@ header p {
 }
 
 .card-position {
-     font-size: 11px;
-     letter-spacing: 0.18em;
+     font-size: 10px;
+     letter-spacing: 0.14em;
      text-transform: uppercase;
-     color: var(--text-dim);
+     color: var(--text-muted);
      font-family: var(--font-display);
      margin-bottom: 5px;
 }
@@ -583,19 +584,21 @@ header p {
 }
 
 .modal-meaning {
-     font-size: 20px;
+     font-size: 19px;
      /* era 17px */
      color: var(--text);
-     line-height: 1.75;
+     line-height: 1.85;
+     font-weight: 400;
 }
 
 .modal-reversed {
      font-size: 17px;
      /* era 15px */
      color: var(--text-muted);
-     line-height: 1.65;
+     line-height: 1.75;
      padding-top: 14px;
      border-top: 1px solid var(--border);
+     font-weight: 400;
 }
 
 .reversed-label {
@@ -603,7 +606,7 @@ header p {
      font-size: 10px;
      letter-spacing: 0.15em;
      text-transform: uppercase;
-     color: var(--text-dim);
+     color: var(--text-muted);
      display: block;
      margin-bottom: 6px;
 }
@@ -781,7 +784,7 @@ header p {
      }
 
      .modal-meaning {
-          font-size: 17px;
+          font-size: 16px;
      }
 
      .modal-reversed {
@@ -927,11 +930,11 @@ header p {
      }
 
      .modal-meaning {
-          font-size: 22px;
+          font-size: 20px;
      }
 
      .modal-reversed {
-          font-size: 19px;
+          font-size: 18px;
      }
 }
 
