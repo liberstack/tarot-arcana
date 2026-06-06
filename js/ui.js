@@ -121,7 +121,7 @@ export function clearReading() {
 }
 
 export function renderAllCards() {
-  import('./deck.js').then(({ default: DECK }) => {
+  import('./spreads.js').then(({ default: DECK }) => {
     const container = document.getElementById('reading-area');
     container.innerHTML = '';
 

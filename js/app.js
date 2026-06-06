@@ -1,11 +1,16 @@
 import { dailyCard, threeCards, celticCross } from './spreads.js';
-import { saveDailyCard, loadDailyCard, saveReading } from './storage.js';
+import { saveDailyCard, loadDailyCard, saveDaily, loadDaily, saveReading } from './storage.js';
 import { renderReading, renderAllCards, setLoading, setActiveButton, clearReading } from './ui.js';
 
 const spreads = {
   daily: dailyCard,
   three: threeCards,
   celtic: celticCross
+};
+
+const KEYS = {
+  three: 'tarot_three',
+  celtic: 'tarot_celtic'
 };
 
 function doReading(type) {
@@ -27,8 +32,9 @@ function doReading(type) {
       reading = cached || dailyCard();
       if (!cached) saveDailyCard(reading);
     } else {
-      reading = spreads[type]();
-      saveReading(reading);
+      const cached = loadDaily(KEYS[type]);
+      reading = cached || spreads[type]();
+      if (!cached) saveDaily(KEYS[type], reading);
     }
 
     setLoading(false);

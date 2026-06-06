@@ -1,5 +1,7 @@
 const KEY_DAILY = 'tarot_daily';
 const KEY_HISTORY = 'tarot_history';
+const KEY_THREE = 'tarot_three';
+const KEY_CELTIC = 'tarot_celtic';
 
 export function saveDailyCard(reading) {
   const entry = {
@@ -11,6 +13,21 @@ export function saveDailyCard(reading) {
 
 export function loadDailyCard() {
   const raw = localStorage.getItem(KEY_DAILY);
+  if (!raw) return null;
+  const entry = JSON.parse(raw);
+  if (entry.date !== new Date().toDateString()) return null;
+  return entry.reading;
+}
+
+export function saveDaily(key, reading) {
+  localStorage.setItem(key, JSON.stringify({
+    reading,
+    date: new Date().toDateString()
+  }));
+}
+
+export function loadDaily(key) {
+  const raw = localStorage.getItem(key);
   if (!raw) return null;
   const entry = JSON.parse(raw);
   if (entry.date !== new Date().toDateString()) return null;

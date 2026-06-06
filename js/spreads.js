@@ -1,4 +1,6 @@
-import DECK from './deck.js';
+const DECK = await fetch('./js/deck.json').then(r => r.json());
+
+export default DECK;
 
 function shuffle(arr) {
   const a = [...arr];
